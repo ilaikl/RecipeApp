@@ -1,35 +1,13 @@
-const fetchPlayersData = function () {
+const renderer = new Renderer()
+const fetchRecipes = function () {
 
-    console.log($("#team-input").val())
-    let input = $("#team-input").val()
+    let input = $("#ingredient-input").val()
 
-    $("#playersList").empty()
-
-    $.get(`/teams/${input}`, function (teamData) {
-
-        teamData.forEach(e => {
-            $("#playersList").append(`<div class="player">${e.firstName} ${e.lastName}<img src="https://nba-players.herokuapp.com/players/${e.lastName}/${e.firstName}"></div>`)
-        });
+    $.get(`/recipes/${input}`, function (receipesObj) {
+        renderer.render(receipesObj)
     })
 }
 
-const fetchDreamTeam = function () {
-    $("#playersList").empty()
-
-    $.get(`/dreamTeam`, function (teamData) {
-
-        teamData.forEach(e => {
-            console.log(e)
-            $("#playersList").append(`<div class="player">${e}</div>`)
-        });
-    })
-}
-
-
-$("#playersList").on("click", ".player", function () {
-    
-    let data =  $(this).text()//JSON.stringify($(this).text())
-    $.post('/roster', {name: data}, function (response) {
-        console.log("posted "+data)
-    })
-});
+$("#recipesList").on("click", "img",function () {
+    console.log($(this).closest(".recipe").find("li")[0].innerText)
+})

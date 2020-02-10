@@ -2,9 +2,15 @@
 body{
     display: grid;
     height:100vh;
-    background-color: #e9e6de;
+    background-color: #f3f2ed;
     grid-template-rows: 1fr 25fr;
     font-family: sans-serif;
+}
+
+#recipesList{
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 #userInput{
@@ -12,13 +18,17 @@ body{
     justify-self: center;
 }
 
-#playersList{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.player{
-    background-color: #ec8e41;
+.recipe{
+    background-color: #d4c7bc;
     margin: 15px;
     padding: 15px;
+}
+.recipe img{
+    width: 90%;
+    height: 200px;
+    padding: 15px;
+}
+
+.title{
+  font-weight: bold;
 }
