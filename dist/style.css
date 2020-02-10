@@ -1,0 +1,24 @@
+
+body{
+    display: grid;
+    height:100vh;
+    background-color: #e9e6de;
+    grid-template-rows: 1fr 25fr;
+    font-family: sans-serif;
+}
+
+#userInput{
+    align-self: center;
+    justify-self: center;
+}
+
+#playersList{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.player{
+    background-color: #ec8e41;
+    margin: 15px;
+    padding: 15px;
+}
